@@ -1,24 +1,62 @@
 :root {
-  --black: #000;
-  --white: #fff;
+  --black: #000000;
+  --white: #ffffff;
+
+  --gold: #c8a84b;
+  --gold2: #e2c06a;
+
+  --gold-dim: rgba(200, 168, 75, 0.18);
+  --gold-border: rgba(200, 168, 75, 0.35);
+
+  --text-light: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.65);
+
+  --bg-dark: #050b18;
+
+  --font-family-p1: "Inter", sans-serif;
+
+  --container: 1320px;
+
+  --transition: all 0.4s ease-in-out;
 }
 
-* {
+
+/* =========================
+Reset
+========================= */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html,
-body {
-  font-family: inherit;
+html {
+  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
 }
+
+body {
+  overflow-x: hidden;
+  background: var(--bg-dark);
+  color: var(--white);
+  font: 400 16px/1.6 var(--font-family-p1);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+
+/* =========================
+Typography
+========================= */
 
 h1,
 h2,
@@ -27,12 +65,14 @@ h4,
 h5,
 h6 {
   margin: 0;
-  line-height: 1.2;
+  color: var(--white);
+  font: 700 16px/1.2 var(--font-family-p1);
 }
 
 p {
   margin: 0;
-  line-height: 1.6;
+  color: var(--text-light);
+  font: 400 16px/1.6 var(--font-family-p1);
 }
 
 ul,
@@ -43,38 +83,458 @@ li {
   list-style: none;
 }
 
-/* Media & Images */
-img {
-  width: 100%;
-  display: block;
-  height: auto;
-}
-
-/* Forms */
-button,
-input,
-select,
-textarea {
-  font: inherit;
-  color: inherit;
-  background: none;
-  border: none;
-  outline: none;
-}
-
 a {
-  text-decoration: none;
   color: inherit;
-  transition: all 0.4s ease-in-out;
+  text-decoration: none;
+  transition: var(--transition);
 }
 
 a:hover {
   text-decoration: none;
-  transition: all 0.6s ease-in-out;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+button,
+input,
+select,
+textarea {
+  border: 0;
+  outline: none;
+  color: inherit;
+  background: transparent;
+  font: inherit;
 }
 
 figure {
   margin: 0;
-  padding: 0;
 }
-/*  */
+
+
+/* =========================
+Buttons
+========================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+  font: 600 16px/1.2 var(--font-family-p1);
+}
+
+.btn-primary {
+  color: var(--black);
+  border: 1px solid var(--gold);
+  background: var(--gold);
+}
+
+.btn-primary:hover {
+  border-color: var(--gold2);
+  background: var(--gold2);
+}
+
+.btn-secondary {
+  color: var(--gold);
+  border: 1px solid var(--gold-border);
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background: var(--gold-dim);
+}
+
+
+/* =========================
+Header
+========================= */
+
+.SiteHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  background: transparent;
+  transition: var(--transition);
+}
+
+.SiteHeader.fixed {
+  backdrop-filter: blur(12px);
+  background: rgba(5, 11, 24, 0.95);
+}
+
+.SiteHeader .navbar-brand img {
+  max-width: 200px;
+  object-fit: contain;
+}
+
+.SiteHeader .navbar-nav {
+  gap: 30px;
+}
+
+.SiteHeader .navbar-nav li a {
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  color: var(--white);
+  font: 500 16px/1.2 var(--font-family-p1);
+}
+
+.SiteHeader .navbar-nav li a:hover,
+.SiteHeader .navbar-nav li a.active {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+
+/* =========================
+Hero Section
+========================= */
+
+.HeroSc {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80dvh;
+  padding: 140px 0 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.HeroSc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(to top,
+      rgba(5, 11, 24, 1),
+      transparent);
+}
+
+.HeroWrap {
+  position: relative;
+  z-index: 1;
+  max-width: 550px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.HeroWrap h1 {
+  margin-bottom: 20px;
+  color: var(--white);
+  letter-spacing: -2px;
+  font: 700 60px/1 var(--font-family-p1);
+}
+
+.HeroWrap h1 span {
+  display: block;
+  color: var(--gold);
+  font: 700 100px/1 var(--font-family-p1);
+}
+
+.HeroWrap ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 2px solid var(--gold);
+}
+
+.HeroWrap ul li {
+  padding: 0 14px;
+  border-right: 1px solid var(--gold);
+  color: var(--white);
+  font: 500 18px/1.2 var(--font-family-p1);
+}
+
+.HeroWrap ul li:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.HeroWrap p {
+  margin: 20px 0;
+  color: var(--white);
+  font: 400 18px/1.6 var(--font-family-p1);
+}
+
+.HeroWrap .ButtonWrap {
+  margin-bottom: 24px;
+}
+
+.DsLine {
+  display: block;
+  color: var(--white);
+  font: 500 16px/1.6 var(--font-family-p1);
+}
+
+
+/* =========================
+Feature Cards
+========================= */
+
+.FeatureCards,
+.FeatureCardsV2 {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding: 20px;
+  border: 1px solid var(--gold-border);
+  border-radius: 20px;
+  background: var(--bg-dark);
+}
+
+.FeatureCards {
+  display: flex;
+  align-items: stretch;
+  margin: 20px 0;
+}
+
+.FeatureCard {
+  flex: 1;
+  padding: 0 20px;
+  text-align: center;
+  border-right: 1px solid var(--gold-border);
+}
+
+.FeatureCard:last-child {
+  border-right: 0;
+}
+
+.FeatureCard .FeatureIcon img {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 18px;
+  object-fit: contain;
+}
+
+.FeatureCard .FeatureContent h3 {
+  margin-bottom: 8px;
+  color: var(--white);
+  font: 700 18px/1.3 var(--font-family-p1);
+}
+
+.FeatureCard .FeatureContent p {
+  color: var(--text-light);
+  font: 400 14px/1.6 var(--font-family-p1);
+}
+
+
+/* =========================
+Feature Cards V2
+========================= */
+
+.FeatureCardsV2 {
+  display: flex;
+  align-items: center;
+}
+
+.FeatureCardV2 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 20px;
+  border-right: 1px solid var(--gold-border);
+}
+
+.FeatureCardV2:last-child {
+  border-right: 0;
+}
+
+.FeatureCardV2 .FeatureIcon img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.FeatureCardV2 h3 {
+  margin-bottom: 4px;
+  color: var(--white);
+  font: 700 18px/1.3 var(--font-family-p1);
+}
+
+.FeatureCardV2 p {
+  color: var(--text-light);
+  font: 400 14px/1.6 var(--font-family-p1);
+}
+
+
+/* =========================
+Section Heading
+========================= */
+
+.HowWorksSc {
+  padding: 100px 0;
+}
+
+.SecHead {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.SecHead span {
+  display: inline-block;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+  color: var(--gold);
+  font: 700 14px/1.2 var(--font-family-p1);
+}
+
+.SecHead h2 {
+  margin-bottom: 16px;
+  color: var(--white);
+  font: 700 60px/1.1 var(--font-family-p1);
+}
+
+.SecHead p {
+  max-width: 700px;
+  margin: 0 auto;
+  font: 400 16px/1.6 var(--font-family-p1);
+}
+
+
+/* =========================
+How Works
+========================= */
+
+.HowWorksCards {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  border: 1px solid var(--gold-border);
+  border-radius: 20px;
+  background: var(--bg-dark);
+}
+
+.HowCard {
+  position: relative;
+  flex: 1;
+  margin-top: -48px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.StepCount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 16px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  background: var(--bg-dark);
+  color: var(--gold);
+  font: 700 20px/1 var(--font-family-p1);
+}
+
+.HowCard h3 {
+  margin-bottom: 14px;
+  font: 700 18px/1.4 var(--font-family-p1);
+}
+
+.HowCard p {
+  font: 400 14px/1.7 var(--font-family-p1);
+}
+
+.HowArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 52px;
+  padding: 0 14px;
+  color: var(--gold);
+  font: 400 22px/1 var(--font-family-p1);
+}
+
+
+/* =========================
+Footer
+========================= */
+
+.SiteFooter {
+  border-top: 1px solid rgba(212, 164, 74, 0.2);
+  background: var(--bg-dark);
+}
+
+.FooterTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(212, 164, 74, 0.15);
+}
+
+.FooterLogo img {
+  max-width: 180px;
+}
+
+.FooterInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font: 400 14px/1.4 var(--font-family-p1);
+}
+
+.FooterInfo i {
+  color: var(--gold);
+  font-size: 18px;
+}
+
+.FooterInfo a:hover {
+  color: var(--gold);
+}
+
+.WhatsappBtn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  color: var(--white);
+  background: #25d366;
+  font: 400 28px/1 var(--font-family-p1);
+}
+
+.FooterBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.FooterBottom p,
+.FooterLinks a {
+  color: var(--text-muted);
+  font: 400 13px/1.6 var(--font-family-p1);
+}
+
+.FooterLinks {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.FooterLinks a:hover {
+  color: var(--gold);
+}
