@@ -65,14 +65,12 @@ h4,
 h5,
 h6 {
   margin: 0;
-  color: var(--white);
-  font: 700 16px/1.2 var(--font-family-p1);
+  padding: 0;
 }
 
 p {
   margin: 0;
-  color: var(--text-light);
-  font: 400 16px/1.6 var(--font-family-p1);
+  padding: 0;
 }
 
 ul,
@@ -206,7 +204,7 @@ Hero Section
   align-items: center;
   justify-content: center;
   min-height: 80dvh;
-  padding: 140px 0 100px;
+  padding: 140px 0 60px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -299,7 +297,7 @@ Feature Cards
 .FeatureCards {
   display: flex;
   align-items: stretch;
-  margin: 20px 0;
+  margin: 40px 0 20px;
 }
 
 .FeatureCard {
@@ -377,7 +375,7 @@ Section Heading
 ========================= */
 
 .HowWorksSc {
-  padding: 100px 0;
+  padding: 60px 0;
 }
 
 .SecHead {
@@ -396,7 +394,7 @@ Section Heading
 .SecHead h2 {
   margin-bottom: 16px;
   color: var(--white);
-  font: 700 60px/1.1 var(--font-family-p1);
+  font: 700 40px/1.1 var(--font-family-p1);
 }
 
 .SecHead p {
@@ -537,4 +535,253 @@ Footer
 
 .FooterLinks a:hover {
   color: var(--gold);
+}
+
+/*  */
+.FeaturedPropertySc {
+  padding: 60px 0;
+  position: relative;
+
+}
+
+.FeaturedPropertySc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(90deg,
+      rgba(3, 10, 25, .95) 0%,
+      rgba(3, 10, 25, .82) 35%,
+      rgba(3, 10, 25, .15) 70%,
+      rgba(3, 10, 25, .05) 100%);
+}
+
+.FeaturedPropertyCn {
+  position: relative;
+  z-index: 1;
+}
+
+.FeaturedPropertyCn span {
+  display: inline-block;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+  color: var(--gold);
+  font: 700 14px/1.2 var(--font-family-p1);
+}
+
+.FeaturedPropertyCn h2 {
+  margin-bottom: 16px;
+  color: var(--white);
+  font: 700 40px/1.1 var(--font-family-p1);
+}
+
+.FeaturedPropertyCn p {
+  font: 400 16px/1.6 var(--font-family-p1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  Color: var(--text-white);
+  margin-bottom: 24px;
+}
+
+.FeaturedPropertyCn p i {
+  color: var(--gold);
+}
+
+.FeaturedPropertyCn ul {
+  margin-bottom: 24px;
+}
+
+.FeaturedPropertyCn ul li {
+  font: 400 16px/1.6 var(--font-family-p1);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.FeaturedPropertyCn ul li i {
+  color: var(--gold);
+}
+
+.FeaturedPropertyCn ul li:last-child {
+  margin-bottom: 0;
+}
+
+/*  */
+.WhyBannerSc {
+  padding: 60px 0;
+}
+
+.WhyBannerScWrap {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  border: 1px solid var(--gold-border);
+  border-radius: 20px;
+  background: var(--bg-dark);
+}
+
+.WhyBannerSc span {
+  display: inline-block;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+  color: var(--gold);
+  font: 700 14px/1.2 var(--font-family-p1);
+}
+
+.WhyBannerSc h2 {
+  margin-bottom: 16px;
+  color: var(--white);
+  font: 700 40px/1.1 var(--font-family-p1);
+}
+
+.WhyBannerSc p {
+  font: 400 16px/1.6 var(--font-family-p1);
+  Color: var(--text-white);
+  margin-bottom: 24px;
+}
+
+
+.WhyBannerSc ul {
+  margin-bottom: 24px;
+}
+
+.WhyBannerSc ul li {
+  font: 400 16px/1.6 var(--font-family-p1);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.WhyBannerSc ul li i {
+  color: var(--gold);
+}
+
+.WhyBannerSc ul li:last-child {
+  margin-bottom: 0;
+}
+
+.WhyBannerSc .ButtonWrap {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-direction: column;
+}
+
+.WhyBannerSc .ButtonWrap a {
+  width: 100%;
+}
+
+.WhyBannerScImg {
+  height: 100%;
+}
+
+.WhyBannerScImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* =========================
+Lease Calculator
+========================= */
+
+.LeaseCalcSc {
+  padding: 60px 0;
+}
+
+.LeaseCalcScWrap {
+  padding: 20px;
+  border: 1px solid var(--gold-border);
+  border-radius: 20px;
+  background: var(--bg-dark);
+}
+
+.LeaseCalcSc span {
+  display: inline-block;
+  margin: 0 0 14px;
+  letter-spacing: 1px;
+  color: var(--gold);
+  font: 700 14px/1.2 var(--font-family-p1);
+}
+
+.LeaseCalcSc h2 {
+  margin: 0 0 16px;
+  color: var(--white);
+  font: 700 40px/1.1 var(--font-family-p1);
+}
+
+.LeaseCalcSc p {
+  margin: 0 0 24px;
+  color: var(--white);
+  font: 400 16px/1.6 var(--font-family-p1);
+}
+
+.LeaseCalcScWrap .ButtonWrap {
+  margin: 24px 0 0;
+  text-align: center;
+}
+
+.LeaseCalcScRow {
+  display: flex;
+  gap: 40px;
+}
+
+.LeaseCalcScRow>div {
+  flex: 1;
+}
+
+.LeaseCalcLeft>.row>div,
+.LeaseCalcRight>.row>div {
+  margin: 0 0 24px;
+}
+
+.FormGroup label {
+  display: block;
+  margin: 0 0 8px;
+  color: #d7d7d7;
+  font: 400 14px/1.4 var(--font-family-p1);
+}
+
+.FormGroup input,
+.FormGroup select {
+  width: 100%;
+  height: 55px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  outline: none;
+  background: #09192b;
+  color: var(--white);
+  font: 400 16px/1.4 var(--font-family-p1);
+}
+
+.ResultBox {
+  height: 100%;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  background: #0a1b2f;
+}
+
+.ResultBox span {
+  display: block;
+  margin: 0 0 12px;
+  color: #b5b5b5;
+  text-align: center;
+  font: 400 14px/1.4 var(--font-family-p1);
+}
+
+.ResultBox h4 {
+  color: var(--white);
+  text-align: center;
+  font: 700 24px/1.3 var(--font-family-p1);
+}
+
+.ResultBox small {
+  color: #d4a64f;
+  font: 400 16px/1.4 var(--font-family-p1);
 }
